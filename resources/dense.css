@@ -1,0 +1,15 @@
+#col-left > div > h2 {
+  margin: 10px 0px;
+}
+
+#main-content > section > h2 {
+  margin-top: 0px;
+}
+
+#col-right {
+  padding: 0px 12px;
+}
+
+#body {
+  font-size: 10px;
+}
