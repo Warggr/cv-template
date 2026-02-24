@@ -1,0 +1,24 @@
+{
+  "name": "jsonresume-theme-warggr",
+  "version": "1.0.0",
+  "description": "A custom JSON Resume theme",
+  "license": "MIT",
+  "author": "Pierre Ballif <pierre@ballif.eu>",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js"
+  },
+  "scripts": {
+    "resume": "resume",
+    "make": "resume export --theme warggr"
+  },
+  "keywords": [
+    "jsonresume",
+    "jsonresume-theme"
+  ],
+  "dependencies": {
+    "jsonresume-theme-warggr": "file:.",
+    "resume-cli": "^3.0.8"
+  }
+}
