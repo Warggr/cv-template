@@ -11,7 +11,7 @@
   },
   "scripts": {
     "resume": "resume",
-    "make": "resume export --theme warggr"
+    "make": "resume export --theme warggr --resume"
   },
   "keywords": [
     "jsonresume",
