@@ -7,7 +7,6 @@
 	{{css "columns.css"}}
 	{{css "style.css"}}
 	{{css "editor.css"}}
-	{{css "dense.css"}}
 	<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'/>
 	<script src="editor.js"></script>
 </head>
@@ -29,7 +28,7 @@
 			</div>
             {{#each profiles}}
 			<div>
-                <i class="fa fa-{{this.network}}"></i>
+                <i class="fa fa-{{toLowerCase this.network}}"></i>
                 <span><a href="{{url}}">{{network}}/{{username}}
 				</a></span>
 			</div>
@@ -50,6 +49,13 @@
 		</div>
         {{/with}}
 		<section id="skills">
+            {{#if resume.lectures}}
+            <h2>Relevant lectures</h2>
+            <ul id="lectures" class="skillList">
+            {{#each resume.lectures}}
+                <li>{{this}}</li>
+            {{/each}}{{/if}}
+            </ul>
             {{#if resume.skills}}
 			<h2>Skills</h2>
             {{#each resume.skills}}
@@ -160,9 +166,9 @@
 				<h2>Achievements</h2>
                 {{#each resume.awards}}
 				<div>
-                    <h3>{{this.awarder}}</h3>
+                    <h4>{{this.awarder}}</h4>
                     <span class="time">{{this.date}}</span>
-                    <h4>{{this.title}}</h4>
+                    <h3>{{this.title}}</h3>
                     <p>{{this.description}}</p>
 				</div>
                 {{/each}}
@@ -173,7 +179,11 @@
 				<h2>Personal / hobby projects</h2>
                 {{#each resume.projects}}
 				<div>
-                    <h3><a href="{{this.url}}">{{this.name}}</a></h3>
+                    <h3>
+                        {{#if url}}<a href="{{url}}">{{this.name}}</a>
+                        {{else}}{{this.name}}
+                        {{/if}}
+                    </h3>
                     <span class="time">{{this.startDate}} - {{this.endDate}}</span>
                     <p>{{this.description}}</p>
                     {{#if this.keywords}}{{#each this.keywords}}

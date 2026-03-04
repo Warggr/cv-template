@@ -9,6 +9,10 @@ Handlebars.registerHelper("css", function(sheetname) {
     return new Handlebars.SafeString('<style>' + contents + '</style>')
 });
 
+Handlebars.registerHelper('toLowerCase', function(str) {
+  return str.toLowerCase();
+});
+
 export function render(resume) {
   return Handlebars.compile(template)({ resume });
 }
