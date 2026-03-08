@@ -6,46 +6,10 @@
 	{{css "semantics.css"}}
 	{{css "tabular.css"}}
 	<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'/>
-	<script src="editor.js"></script>
 </head>
 <body onload="javascript:main()">
 	<main class="page">
 	<div class="column" id="col-left">
-        {{#with resume.basics}}
-        {{#if image}}
-        <img src="{{image}}" id="img_profile" class="big"/>
-        {{/if}}
-        <div id="facts">
-			<div>
-				<i class="fa fa-at"></i>
-                <span><a href="mailto:{{email}}" style="font-size: 80%">{{email}}</a></span>
-			</div>
-			<div>
-				<i class="fa fa-phone"></i>
-                <span><a href="callto:{{phone}}">{{phone}}</a></span>
-			</div>
-            {{#each profiles}}
-			<div>
-                <i class="fa fa-{{toLowerCase this.network}}"></i>
-                <span><a href="{{url}}">{{network}}/{{username}}
-				</a></span>
-			</div>
-            {{/each}}
-            {{#if location}}{{#with location}}
-			<div>
-				<i class="fa fa-envelope-o"></i>
-                <span>{{address}}<br/>{{postalCode}} {{city}}<br/>{{region}}-{{countryCode}}</span>
-			</div>
-            {{/with}}{{/if}}
-            {{#if birth}}
-			<div>
-				<i class='fa fa-asterisk'></i>
-                <span>born {{birth.date}}
-                    {{#if birth.place}}in {{birth.place}}{{/if}}</span>
-			</div>
-            {{/if}}
-		</div>
-        {{/with}}
 		<section id="skills">
             {{#if resume.lectures}}
             <h2>Relevant lectures</h2>
@@ -97,6 +61,41 @@
 	</div>
 	<div class="column" id="col-right">
 		<p id="fullname">{{resume.basics.name}}</p>
+        {{#with resume.basics}}
+        {{#if image}}
+        <img src="{{image}}" id="img_profile" class="big"/>
+        {{/if}}
+        <div id="facts">
+			<div>
+				<i class="fa fa-at"></i>
+                <span><a href="mailto:{{email}}" style="font-size: 80%">{{email}}</a></span>
+			</div>
+			<div>
+				<i class="fa fa-phone"></i>
+                <span><a href="callto:{{phone}}">{{phone}}</a></span>
+			</div>
+            {{#each profiles}}
+			<div>
+                <i class="fa fa-{{toLowerCase this.network}}"></i>
+                <span><a href="{{url}}">{{network}}/{{username}}
+				</a></span>
+			</div>
+            {{/each}}
+            {{#if location}}{{#with location}}
+			<div>
+				<i class="fa fa-envelope-o"></i>
+                <span>{{address}}<br/>{{postalCode}} {{city}}<br/>{{region}}-{{countryCode}}</span>
+			</div>
+            {{/with}}{{/if}}
+            {{#if birth}}
+			<div>
+				<i class='fa fa-asterisk'></i>
+                <span>born {{birth.date}}
+                    {{#if birth.place}}in {{birth.place}}{{/if}}</span>
+			</div>
+            {{/if}}
+		</div>
+        {{/with}}
         {{#if resume.basics.summary}}
 		<section id="about">
             <p>{{resume.basics.summary}}</p>
