@@ -113,6 +113,15 @@
                     <h4>{{this.institution}}</h4>
                     <span class="time">{{this.startDate}} - {{this.endDate}}</span>
                     <h3>{{this.studyType}} {{this.area}}</h3>
+                    {{#if this.special_courses}}
+                    <ul>
+                    {{#each special_courses}}
+                        <li/>{{this}}
+                    {{/each}}
+                    {{#if courses}}
+                    <li/>Relevant lectures:
+                    {{/if}}
+                    {{/if}}
                     {{#if this.courses}}
 					<ul>
                         {{#each this.courses}}
@@ -120,6 +129,9 @@
                         {{/each}}
                         {{#if this.score}}<li/>{{this.score}} average grade{{/if}}
 					</ul>
+                    {{/if}}
+                    {{#if this.special_courses}}
+                    </ul>
                     {{/if}}
 				</div>
                 {{/each}}
@@ -133,7 +145,7 @@
                     <span class="time">{{this.startDate}} &ndash; {{this.endDate}}</span>
                     <h4>{{this.name}}</h4>
                     <h3>{{this.position}}</h3>
-                    {{#if this.description}}<p>{{this.description}}</p>{{/if}}
+                    {{#if this.summary}}<p>{{this.summary}}</p>{{/if}}
                     {{#if this.highlights}}
 					<ul>
                         {{#each this.highlights}}
@@ -157,6 +169,9 @@
                     <span class="time">{{this.startDate}} - {{this.endDate}}</span>
                     <h3>{{this.position}}</h3>
                     <p>{{this.summary}}</p>
+                    {{#if this.technologies}}{{#each this.technologies}}
+                    <span class="skill">{{this}}</span>
+                    {{/each}}{{/if}}
 				</div>
                 {{/each}}
 			</section>
