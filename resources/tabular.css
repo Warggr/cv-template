@@ -46,10 +46,8 @@ main {
 }
 
 #skills {
-	width: 70%; /* to make the languages fit next to it */
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	column-gap: 20px;
+	display: flex;
+    flex-wrap: wrap;
 }
 
 table#spoken-languages {
@@ -61,12 +59,11 @@ table#spoken-languages {
 }
 
 #skills > h2 {
-	grid-row: 1;
-	grid-column: 1 / -1;
+    flex-basis: 100%;
 }
 
 #skills > section {
-	grid-row: 2;
+    flex: 1;
 }
 
 #fullname {
