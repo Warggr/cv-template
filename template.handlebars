@@ -184,7 +184,7 @@
                     <h4>{{this.awarder}}</h4>
                     <span class="time">{{this.date}}</span>
                     <h3>{{this.title}}</h3>
-                    <p>{{this.description}}</p>
+                    <p>{{this.summary}}</p>
 				</div>
                 {{/each}}
 			</section>
@@ -199,7 +199,8 @@
                         {{else}}{{this.name}}
                         {{/if}}
                     </h3>
-                    <span class="time">{{this.startDate}} - {{this.endDate}}</span>
+                    {{#if date}}<span class="time">{{this.date}}</span>{{/if}}
+                    {{#if startDate}}<span class="time">{{this.startDate}} - {{this.endDate}}</span>{{/if}}
                     <p>{{this.description}}</p>
                     {{#if this.keywords}}{{#each this.keywords}}
                     <span class="skill">{{this}}</span>
