@@ -42,22 +42,22 @@
             {{#if birth}}
 			<div>
 				<i class='fa fa-asterisk'></i>
-                <span>born {{birth.date}}
-                    {{#if birth.place}}in {{birth.place}}{{/if}}</span>
+				<span>{{i18n "born"}} {{birth.date}}
+					{{#if birth.place}}{{i18n "in"}} {{birth.place}}{{/if}}</span>
 			</div>
             {{/if}}
 		</div>
         {{/with}}
 		<section id="skills">
             {{#if resume.lectures}}
-            <h2>Relevant lectures</h2>
+	    <h2>{{i18n "Lectures"}}</h2>
             <ul id="lectures" class="skillList">
             {{#each resume.lectures}}
                 <li>{{this}}</li>
             {{/each}}{{/if}}
             </ul>
             {{#if resume.skills}}
-			<h2>Skills</h2>
+	    <h2>{{i18n "Skills"}}</h2>
             {{#each resume.skills}}
 			<section>
                 <h3>{{this.name}}</h3>
@@ -72,7 +72,7 @@
             {{/each}}{{/if}}
             {{#if resume.languages}}
 			<section id="spoken-languages">
-				<h3>Spoken Languages</h3>
+				<h3>{{i18n "Spoken languages"}}</h3>
 				<table>
                     {{#each resume.languages}}
 					<tr>
@@ -85,7 +85,7 @@
 		</section>
         {{#if resume.interests}}
 		<section id="hobbies">
-			<h2>Other interests / hobbies</h2>
+			<h2>{{i18n "Other interests / hobbies"}}</h2>
 			<ul>
                 {{#each resume.interests}}
                 <li/><b>{{this.name}}</b>
@@ -107,7 +107,7 @@
 		<div id="main-content">
             {{#if resume.education}}
 			<section class="main-content" id="academic-xp">
-				<h2>Academic Experience</h2>
+				<h2>{{i18n "Academic Experience"}}</h2>
                 {{#each resume.education}}
 				<div>
                     <h4>{{this.institution}}</h4>
@@ -119,7 +119,7 @@
                         <li/>{{this}}
                     {{/each}}
                     {{#if courses}}
-                    <li/>Relevant lectures:
+		    <li/>{{i18n "Relevant lectures"}}:
                     {{/if}}
                     {{/if}}
                     {{#if this.courses}}
@@ -127,7 +127,7 @@
                         {{#each this.courses}}
                         <li/>{{this}}
                         {{/each}}
-                        {{#if this.score}}<li/>{{this.score}} average grade{{/if}}
+			{{#if this.score}}<li/>{{this.score}} {{i18n "average grade"}}{{/if}}
 					</ul>
                     {{/if}}
                     {{#if this.special_courses}}
@@ -139,7 +139,7 @@
             {{/if}}
             {{#if resume.work}}
 			<section class="main-content" id="work-xp">
-				<h2>Work Experience</h2>
+				<h2>{{i18n "Work Experience"}}</h2>
                 {{#each resume.work}}
 				<div>
                     <span class="time">{{this.startDate}} &ndash; {{this.endDate}}</span>
@@ -162,7 +162,7 @@
             {{/if}}
             {{#if resume.volunteer}}
 			<section class="main-content" id="volunteering-xp">
-				<h2>Volunteering Experience</h2>
+				<h2>{{i18n "Volunteering Experience"}}</h2>
                 {{#each resume.volunteer}}
 				<div>
                     <h4>{{this.organization}}</h4>
@@ -178,7 +178,7 @@
             {{/if}}
             {{#if resume.awards}}
 			<section class="main-content" id="achievements">
-				<h2>Achievements</h2>
+				<h2>{{i18n "Achievements"}}</h2>
                 {{#each resume.awards}}
 				<div>
                     <h4>{{this.awarder}}</h4>
@@ -191,7 +191,7 @@
             {{/if}}
             {{#if resume.projects}}
 			<section class="main-content" id="personal-projects" class="big">
-				<h2>Personal / hobby projects</h2>
+				<h2>{{i18n "Personal / hobby projects"}}</h2>
                 {{#each resume.projects}}
 				<div>
                     <h3>

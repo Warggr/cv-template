@@ -14,5 +14,11 @@ Handlebars.registerHelper('toLowerCase', function(str) {
 });
 
 export function render(resume) {
-  return Handlebars.compile(template)({ resume });
+  const translations = JSON.parse(fs.readFileSync(`./locales/${resume.meta.lang ?? "en"}.json`));
+  Handlebars.registerHelper("i18n", function (key) {
+    console.warn("Translating", key);
+    return translations[key];
+  });
+
+  return Handlebars.compile(template, {noEscape: true})({ resume });
 }
