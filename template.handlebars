@@ -10,225 +10,349 @@
   </head>
   <body onload="javascript:main()">
     <main class="page">
-      <div class="column" id="col-left">
-        <section id="skills">
-          {{#if resume.lectures}}
-            <h2>{{i18n "Lectures"}}</h2>
-            <ul id="lectures" class="skillList">
-              {{#each resume.lectures}}
-                <li>{{this}}</li>
-              {{/each}}
-            </ul>
-          {{/if}}
-          {{#if resume.skills}}
-            <h2>{{i18n "Skills"}}</h2>
-            {{#each resume.skills}}
-              <section>
-                <h3>{{this.name}}</h3>
-                {{#if this.keywords}}
-                  <ul class="skillList">
-                    {{#each this.keywords}}
-                      <li>{{this}}</li>
-                    {{/each}}
-                  </ul>
-                {{/if}}
-              </section>
-            {{/each}}{{/if}}
-          {{#if resume.languages}}
-            <section id="spoken-languages">
-              <h3>{{i18n "Spoken languages"}}</h3>
-              <table>
-                {{#each resume.languages}}
-                  <tr>
-                    <td>{{this.language}}</td><td>{{this.fluency}}</td>
-                  </tr>
-                {{/each}}
-              </table>
-            </section>
-          {{/if}}
-        </section>
-        {{#if resume.interests}}
-          <section id="hobbies">
-            <h2>{{i18n "Other interests / hobbies"}}</h2>
-            <ul>
-              {{#each resume.interests}}
-                <li /><b>{{this.name}}</b>
-                {{#if this.keywords}}{{#each this.keywords}}
-                    <span class="skill">{{this}}</span>
-                  {{/each}}{{/if}}
-              {{/each}}
-            </ul>
-          </section>
-        {{/if}}
-      </div>
-      <div class="column" id="col-right">
-        <p id="fullname">{{resume.basics.name}}</p>
+
+      <!-- ============================================================
+         HEADER
+         ============================================================ -->
+
+      <header id="header">
+
+        <h1 id="fullname">{{resume.basics.name}}</h1>
+
         {{#with resume.basics}}
-          {{#if image}}
-            <img src="{{image}}" id="img_profile" class="big" />
-          {{/if}}
-          <div id="facts">
-            <div>
-              <i class="fa fa-at"></i>
-              <span><a
-                  href="mailto:{{email}}"
-                  style="font-size: 80%"
-                >{{email}}</a></span>
-            </div>
-            <div>
-              <i class="fa fa-phone"></i>
-              <span><a href="callto:{{phone}}">{{phone}}</a></span>
-            </div>
-            {{#each profiles}}
-              <div>
-                <i class="fa fa-{{toLowerCase this.network}}"></i>
-                <span><a href="{{url}}">{{network}}/{{username}}
-                  </a></span>
-              </div>
-            {{/each}}
-            {{#if location}}{{#with location}}
-                <div>
-                  <i class="fa fa-envelope-o"></i>
-                  <span>{{address}}<br />{{postalCode}}
-                    {{city}}<br />{{region}}-{{countryCode}}</span>
-                </div>
-              {{/with}}{{/if}}
-            {{#if birth}}
-              <div>
-                <i class="fa fa-asterisk"></i>
-                <span>{{i18n "born"}}
-                  {{birth.date}}
-                  {{#if birth.place}}{{i18n "in"}} {{birth.place}}{{/if}}</span>
-              </div>
+          <div id="contact">
+
+            {{#if email}}
+              <a href="mailto:{{email}}">
+                <i class="fa fa-at"></i>
+                {{email}}
+              </a>
             {{/if}}
+
+            {{#if phone}}
+              <a href="tel:{{phone}}">
+                <i class="fa fa-phone"></i>
+                {{phone}}
+              </a>
+            {{/if}}
+
+            {{#each profiles}}
+              <a href="{{url}}">
+                <i class="fa fa-{{toLowerCase this.network}}"></i>
+                {{network}}/{{username}}
+              </a>
+            {{/each}}
+
+            {{#if location}}
+              <span>
+                <i class="fa fa-map-marker"></i>
+                {{location.city}}{{#if location.countryCode}},
+                  {{location.countryCode}}{{/if}}
+              </span>
+            {{/if}}
+
           </div>
         {{/with}}
         {{#if resume.basics.summary}}
-          <section id="about">
-            <p>{{resume.basics.summary}}</p>
-          </section>
+          <p id="summary">
+            {{resume.basics.summary}}
+          </p>
         {{/if}}
-        <div id="main-content">
-          {{#if resume.education}}
-            <section class="main-content" id="academic-xp">
-              <h2>{{i18n "Academic Experience"}}</h2>
-              {{#each resume.education}}
-                <div>
-                  <h4>{{this.institution}}</h4>
-                  <span class="time">{{this.startDate}}
-                    -
-                    {{this.endDate}}</span>
-                  <h3>{{this.studyType}} {{this.area}}</h3>
-                  {{#if this.special_courses}}
+
+      </header>
+
+      <!-- ============================================================
+         MAIN CONTENT
+         ============================================================ -->
+
+      <div id="main-content">
+
+        <!-- ==================== EDUCATION ==================== -->
+
+        {{#if resume.education}}
+          <section id="education">
+
+            <h2>Academic Experience</h2>
+
+            {{#each resume.education}}
+              <div class="entry">
+
+                <div class="date">
+                  {{startDate}}<br />
+                  <span class="date-separator">–</span><br />
+                  {{endDate}}
+                </div>
+
+                <div class="entry-content">
+
+                  <div class="entry-header">
+                    <h3>{{institution}}</h3>
+                  </div>
+
+                  <p class="entry-title">
+                    {{studyType}}
+                    {{area}}
+                  </p>
+
+                  {{#if special_courses}}
                     <ul>
                       {{#each special_courses}}
                         <li />{{this}}
                       {{/each}}
-                      {{#if courses}}
-                        <li />{{i18n "Relevant lectures"}}:
-                        <ul>
-                          {{#each this.courses}}
-                            <li />{{this}}
-                          {{/each}}
-                          {{#if this.score}}<li />{{this.score}}
-                            {{i18n "average grade"}}{{/if}}
-                        </ul>
+
+                      {{#if score}}
+                        <li>
+                          {{score}}
+                          average grade
+                          {{#if ranking}}({{ranking}}){{/if}}
+                        </li>
                       {{/if}}
                     </ul>
-                  {{else}}
-                    {{#if courses}}
-                      <ul>
-                        {{#each this.courses}}
-                          <li />{{this}}
-                        {{/each}}
-                        {{#if this.score}}<li />{{this.score}}
-                          {{i18n "average grade"}}{{/if}}
-                      </ul>
-                    {{/if}}
                   {{/if}}
-                </div>
-              {{/each}}
-            </section>
-          {{/if}}
-          {{#if resume.work}}
-            <section class="main-content" id="work-xp">
-              <h2>{{i18n "Work Experience"}}</h2>
-              {{#each resume.work}}
-                <div>
-                  <span class="time">{{this.startDate}}
-                    &ndash;
-                    {{this.endDate}}</span>
-                  <h4>{{this.name}}</h4>
-                  <h3>{{this.position}}</h3>
-                  {{#if this.summary}}<p>{{this.summary}}</p>{{/if}}
-                  {{#if this.highlights}}
+
+                  {{#if courses}}
+                    <p class="subheading">Relevant coursework</p>
+
                     <ul>
                       {{#each this.highlights}}
                         <li />{{this}}
                       {{/each}}
+
+                      {{#if score}}
+                        <li>
+                          {{score}}
+                          average grade
+                          {{#if ranking}}({{ranking}}){{/if}}
+                        </li>
+                      {{/if}}
                     </ul>
                   {{/if}}
-                  {{#if this.technologies}}{{#each this.technologies}}
-                      <span class="skill">{{this}}</span>
-                    {{/each}}{{/if}}
+
+                  {{#if score}}
+                    {{#unless special_courses}}
+                      {{#unless courses}}
+                        <p class="entry-detail">
+                          {{score}}
+                          average grade
+                          {{#if ranking}}({{ranking}}){{/if}}
+                        </p>
+                      {{/unless}}
+                    {{/unless}}
+                  {{/if}}
+
                 </div>
-              {{/each}}
-            </section>
-          {{/if}}
-          {{#if resume.volunteer}}
-            <section class="main-content" id="volunteering-xp">
-              <h2>{{i18n "Volunteering Experience"}}</h2>
-              {{#each resume.volunteer}}
-                <div>
-                  <h4>{{this.organization}}</h4>
-                  <span class="time">{{this.startDate}}
-                    -
-                    {{this.endDate}}</span>
-                  <h3>{{this.position}}</h3>
-                  <p>{{this.summary}}</p>
-                  {{#if this.technologies}}{{#each this.technologies}}
-                      <span class="skill">{{this}}</span>
-                    {{/each}}{{/if}}
+
+              </div>
+            {{/each}}
+
+          </section>
+        {{/if}}
+
+        <!-- ==================== WORK EXPERIENCE ==================== -->
+
+        {{#if resume.work}}
+          <section id="work-experience">
+
+            <h2>Work Experience</h2>
+
+            {{#each resume.work}}
+              <div class="entry">
+
+                <div class="date">
+                  {{startDate}}<br />
+                  <span class="date-separator">–</span><br />
+                  {{endDate}}
                 </div>
-              {{/each}}
-            </section>
-          {{/if}}
-          {{#if resume.awards}}
-            <section class="main-content" id="achievements">
-              <h2>{{i18n "Achievements"}}</h2>
-              {{#each resume.awards}}
-                <div>
-                  <h4>{{this.awarder}}</h4>
-                  <span class="time">{{this.date}}</span>
-                  <h3>{{this.title}}</h3>
-                  <p>{{this.summary}}</p>
+
+                <div class="entry-content">
+
+                  <h3>{{name}}</h3>
+
+                  <p class="entry-title">
+                    {{position}}
+                  </p>
+
+                  {{#if summary}}
+                    <p class="summary">
+                      {{summary}}
+                    </p>
+                  {{/if}}
+
+                  {{#if highlights}}
+                    <ul>
+                      {{#each highlights}}
+                        <li>{{this}}</li>
+                      {{/each}}
+                    </ul>
+                  {{/if}}
+
+                  {{#if technologies}}
+                    <div class="tags">
+                      {{#each technologies}}
+                        <span class="tag">{{this}}</span>
+                      {{/each}}
+                    </div>
+                  {{/if}}
+
                 </div>
-              {{/each}}
-            </section>
-          {{/if}}
-          {{#if resume.projects}}
-            <section class="main-content" id="personal-projects" class="big">
-              <h2>{{i18n "Personal / hobby projects"}}</h2>
-              {{#each resume.projects}}
-                <div>
+
+              </div>
+            {{/each}}
+
+          </section>
+        {{/if}}
+
+        <!-- ==================== PROJECTS ==================== -->
+
+        {{#if resume.projects}}
+          <section id="projects">
+
+            <h2>Selected Projects</h2>
+
+            {{#each resume.projects}}
+              <div class="entry">
+
+                <div class="date">
+                  {{#if date}}
+                    {{date}}
+                  {{else}}
+                    {{startDate}}
+                    {{#if endDate}}
+                      <br />
+                      <span class="date-separator">–</span>
+                      <br />
+                      {{endDate}}
+                    {{/if}}
+                  {{/if}}
+                </div>
+
+                <div class="entry-content">
+
                   <h3>
                     {{#if url}}<a href="{{url}}">{{this.name}}</a>
                     {{else}}{{this.name}}
                     {{/if}}
                   </h3>
-                  {{#if date}}<span class="time">{{this.date}}</span>{{/if}}
-                  {{#if startDate}}<span class="time">{{this.startDate}}
-                      -
-                      {{this.endDate}}</span>{{/if}}
-                  <p>{{this.description}}</p>
-                  {{#if this.keywords}}{{#each this.keywords}}
-                      <span class="skill">{{this}}</span>
-                    {{/each}}{{/if}}
+
+                  {{#if generic}}
+                    <p class="entry-title">
+                      {{generic}}
+                    </p>
+                  {{/if}}
+
+                  {{#if summary}}
+                    <p class="summary">
+                      {{summary}}
+                    </p>
+                  {{/if}}
+
+                  {{#if highlights}}
+                    <ul>
+                      {{#each highlights}}
+                        <li>{{this}}</li>
+                      {{/each}}
+                    </ul>
+                  {{/if}}
+
+                  {{#if keywords}}
+                    <div class="tags">
+                      {{#each keywords}}
+                        <span class="tag">{{this}}</span>
+                      {{/each}}
+                    </div>
+                  {{/if}}
+
+                </div>
+
+              </div>
+            {{/each}}
+
+          </section>
+        {{/if}}
+
+        <!-- ==================== AWARDS ==================== -->
+
+        {{#if resume.awards}}
+          <section id="achievements">
+
+            <h2>Achievements</h2>
+
+            {{#each resume.awards}}
+              <div class="entry">
+
+                <div class="date">
+                  {{date}}
+                </div>
+
+                <div class="entry-content">
+
+                  <h3>{{title}}</h3>
+
+                  <p class="entry-title">
+                    {{awarder}}
+                  </p>
+
+                  {{#if summary}}
+                    <p class="summary">
+                      {{summary}}
+                    </p>
+                  {{/if}}
+
+                </div>
+
+              </div>
+            {{/each}}
+
+          </section>
+        {{/if}}
+
+        <!-- ==================== SKILLS ==================== -->
+
+        {{#if resume.skills}}
+          <section id="skills">
+
+            <h2>Skills</h2>
+
+            <div id="skills-grid">
+
+              {{#each resume.skills}}
+                <div class="skill-group">
+
+                  <h3>{{name}}</h3>
+
+                  {{#if keywords}}
+                    <ul>
+                      {{#each keywords}}
+                        <li>{{this}}</li>
+                      {{/each}}
+                    </ul>
+                  {{/if}}
+
                 </div>
               {{/each}}
-            </section>
-          {{/if}}
-        </div>
+
+              {{#if resume.languages}}
+                <div class="skill-group" id="spoken-languages">
+
+                  <h3>Spoken Languages</h3>
+
+                  <ul>
+                    {{#each resume.languages}}
+                      <li>
+                        <span>{{language}}</span>
+                        <span class="fluency">{{fluency}}</span>
+                      </li>
+                    {{/each}}
+                  </ul>
+
+                </div>
+              {{/if}}
+
+            </div>
+
+          </section>
+        {{/if}}
+
       </div>
     </main>
   </body>
