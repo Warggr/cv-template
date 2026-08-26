@@ -1,21 +1,21 @@
 .big.deactivated {
-	display: none !important; /* because just hidden=true has lower priority than the rest of the CSS */
+  display: none !important; /* because just hidden=true has lower priority than the rest of the CSS */
 }
 
 input.floating-control {
-	position: absolute;
+  position: absolute;
 }
 
 @media print {
-	form.chooseText > label:has(> input:not(:checked)) {
-		display: none;
-	}
+  form.chooseText > label:has(> input:not(:checked)) {
+    display: none;
+  }
 
-	form.chooseText > label > input {
-		display: none;
-	}
+  form.chooseText > label > input {
+    display: none;
+  }
 
-	.deactivated {
-		display: none !important;
-	}
+  .deactivated {
+    display: none !important;
+  }
 }

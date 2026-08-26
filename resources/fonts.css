@@ -1,62 +1,117 @@
-@font-face{font-family:'Arvo';
-	font-weight:400;
-	font-style:normal;
-	src:url('https://static.zohocdn.com/webfonts/arvo/font.woff2') format('woff2'),url('https://static.zohocdn.com/webfonts/arvo/font.woff') format('woff');
+@font-face {
+  font-family: "Arvo";
+  font-weight: 400;
+  font-style: normal;
+  src:
+    url("https://static.zohocdn.com/webfonts/arvo/font.woff2") format("woff2"),
+    url("https://static.zohocdn.com/webfonts/arvo/font.woff") format("woff");
 }
-@font-face{font-family:'Arvo';
-	font-weight:700;
-	font-style:normal;
-	src:url('https://static.zohocdn.com/webfonts/arvobold/font.woff2') format('woff2'),url('https://static.zohocdn.com/webfonts/arvobold/font.woff') format('woff');
+@font-face {
+  font-family: "Arvo";
+  font-weight: 700;
+  font-style: normal;
+  src:
+    url("https://static.zohocdn.com/webfonts/arvobold/font.woff2")
+      format("woff2"),
+    url("https://static.zohocdn.com/webfonts/arvobold/font.woff") format("woff");
 }
-@font-face{font-family:'Arvo';
-	font-weight:400;
-	font-style:italic;
-	src:url('https://static.zohocdn.com/webfonts/arvoitalic/font.woff2') format('woff2'),url('https://static.zohocdn.com/webfonts/arvoitalic/font.woff') format('woff');
+@font-face {
+  font-family: "Arvo";
+  font-weight: 400;
+  font-style: italic;
+  src:
+    url("https://static.zohocdn.com/webfonts/arvoitalic/font.woff2")
+      format("woff2"),
+    url("https://static.zohocdn.com/webfonts/arvoitalic/font.woff")
+      format("woff");
 }
-@font-face{font-family:'Arvo';
-	font-weight:700;
-	font-style:italic;
-	src:url('https://static.zohocdn.com/webfonts/arvobolditalic/font.woff2') format('woff2'),url('https://static.zohocdn.com/webfonts/arvobolditalic/font.woff') format('woff');
+@font-face {
+  font-family: "Arvo";
+  font-weight: 700;
+  font-style: italic;
+  src:
+    url("https://static.zohocdn.com/webfonts/arvobolditalic/font.woff2")
+      format("woff2"),
+    url("https://static.zohocdn.com/webfonts/arvobolditalic/font.woff")
+      format("woff");
 }
-@font-face{font-family:'Arimo';
-	font-weight:400;
-	font-style:normal;
-	src:url('https://static.zohocdn.com/webfonts/arimo/font.woff2') format('woff2'),url('https://static.zohocdn.com/webfonts/arimo/font.woff') format('woff');
+@font-face {
+  font-family: "Arimo";
+  font-weight: 400;
+  font-style: normal;
+  src:
+    url("https://static.zohocdn.com/webfonts/arimo/font.woff2") format("woff2"),
+    url("https://static.zohocdn.com/webfonts/arimo/font.woff") format("woff");
 }
-@font-face{font-family:'Arimo';
-	font-weight:700;
-	font-style:normal;
-	src:url('https://static.zohocdn.com/webfonts/arimobold/font.woff2') format('woff2'),url('https://static.zohocdn.com/webfonts/arimobold/font.woff') format('woff');
+@font-face {
+  font-family: "Arimo";
+  font-weight: 700;
+  font-style: normal;
+  src:
+    url("https://static.zohocdn.com/webfonts/arimobold/font.woff2")
+      format("woff2"),
+    url("https://static.zohocdn.com/webfonts/arimobold/font.woff")
+      format("woff");
 }
-@font-face{font-family:'Arimo';
-	font-weight:400;
-	font-style:italic;
-	src:url('https://static.zohocdn.com/webfonts/arimoitalic/font.woff2') format('woff2'),url('https://static.zohocdn.com/webfonts/arimoitalic/font.woff') format('woff');
+@font-face {
+  font-family: "Arimo";
+  font-weight: 400;
+  font-style: italic;
+  src:
+    url("https://static.zohocdn.com/webfonts/arimoitalic/font.woff2")
+      format("woff2"),
+    url("https://static.zohocdn.com/webfonts/arimoitalic/font.woff")
+      format("woff");
 }
-@font-face{font-family:'Arimo';
-	font-weight:700;
-	font-style:italic;
-	src:url('https://static.zohocdn.com/webfonts/arimobolditalic/font.woff2') format('woff2'),url('https://static.zohocdn.com/webfonts/arimobolditalic/font.woff') format('woff');
+@font-face {
+  font-family: "Arimo";
+  font-weight: 700;
+  font-style: italic;
+  src:
+    url("https://static.zohocdn.com/webfonts/arimobolditalic/font.woff2")
+      format("woff2"),
+    url("https://static.zohocdn.com/webfonts/arimobolditalic/font.woff")
+      format("woff");
 }
-@font-face{font-family:'Anonymous Pro';
-	font-weight:400;
-	font-style:normal;
-	src:url('https://static.zohocdn.com/webfonts/anonymouspro/font.woff2') format('woff2'),url('https://static.zohocdn.com/webfonts/anonymouspro/font.woff') format('woff');
+@font-face {
+  font-family: "Anonymous Pro";
+  font-weight: 400;
+  font-style: normal;
+  src:
+    url("https://static.zohocdn.com/webfonts/anonymouspro/font.woff2")
+      format("woff2"),
+    url("https://static.zohocdn.com/webfonts/anonymouspro/font.woff")
+      format("woff");
 }
-@font-face{font-family:'Anonymous Pro';
-	font-weight:700;
-	font-style:normal;
-	src:url('https://static.zohocdn.com/webfonts/anonymousprobold/font.woff2') format('woff2'),url('https://static.zohocdn.com/webfonts/anonymousprobold/font.woff') format('woff');
+@font-face {
+  font-family: "Anonymous Pro";
+  font-weight: 700;
+  font-style: normal;
+  src:
+    url("https://static.zohocdn.com/webfonts/anonymousprobold/font.woff2")
+      format("woff2"),
+    url("https://static.zohocdn.com/webfonts/anonymousprobold/font.woff")
+      format("woff");
 }
-@font-face{font-family:'Anonymous Pro';
-	font-weight:400;
-	font-style:italic;
-	src:url('https://static.zohocdn.com/webfonts/anonymousproitalic/font.woff2') format('woff2'),url('https://static.zohocdn.com/webfonts/anonymousproitalic/font.woff') format('woff');
+@font-face {
+  font-family: "Anonymous Pro";
+  font-weight: 400;
+  font-style: italic;
+  src:
+    url("https://static.zohocdn.com/webfonts/anonymousproitalic/font.woff2")
+      format("woff2"),
+    url("https://static.zohocdn.com/webfonts/anonymousproitalic/font.woff")
+      format("woff");
 }
-@font-face{font-family:'Anonymous Pro';
-	font-weight:700;
-	font-style:italic;
-	src:url('https://static.zohocdn.com/webfonts/anonymousprobolditalic/font.woff2') format('woff2'),url('https://static.zohocdn.com/webfonts/anonymousprobolditalic/font.woff') format('woff');
+@font-face {
+  font-family: "Anonymous Pro";
+  font-weight: 700;
+  font-style: italic;
+  src:
+    url("https://static.zohocdn.com/webfonts/anonymousprobolditalic/font.woff2")
+      format("woff2"),
+    url("https://static.zohocdn.com/webfonts/anonymousprobolditalic/font.woff")
+      format("woff");
 }
 
-@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";

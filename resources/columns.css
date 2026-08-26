@@ -1,18 +1,18 @@
 main {
-	display: flex;
-	flex-direction: row;
-	border-collapse: collapse;
+  display: flex;
+  flex-direction: row;
+  border-collapse: collapse;
 }
 
 div.column {
-	min-height: 100vh;
+  min-height: 100vh;
 }
 
 #col-left {
-	flex: 0.2;
-	min-width: 25%;
+  flex: 0.2;
+  min-width: 25%;
 }
 
 #col-right {
-	flex: 0.8;
+  flex: 0.8;
 }

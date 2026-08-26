@@ -1,80 +1,81 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 
 :root {
-	--ink: #161A23;
-	--white: #F2F6F8;
+  --ink: #161a23;
+  --white: #f2f6f8;
 
   --background: var(--white);
   --text: var(--ink);
-  --most: #1C1C75; /* #386FA4; */
+  --most: #1c1c75; /* #386FA4; */
   --more: var(--ink);
   --less: #729787; /* #50C5B7, turquoise ("verdigris") */
-  --pale: #C5CCC9;
-  --gold: #FFD100;
+  --pale: #c5ccc9;
+  --gold: #ffd100;
 }
 
 body {
-	font-size: 11pt; 
-/*  font-family: arial, helvetica, sans-serif; */
-	line-height: 1.2;
-	font-family: Roboto;
-	margin: 0;
+  font-size: 11pt;
+  /*  font-family: arial, helvetica, sans-serif; */
+  line-height: 1.2;
+  font-family: Roboto;
+  margin: 0;
 
-	color: var(--text);
-	background-color: var(--background) !important;
+  color: var(--text);
+  background-color: var(--background) !important;
 }
 
 #col-left {
-	--background: #000;
-	--text: var(--white);
-	background-color: var(--background);
-	color: var(--text);
-	border-right: 2px solid var(--gold);
+  --background: #000;
+  --text: var(--white);
+  background-color: var(--background);
+  color: var(--text);
+  border-right: 2px solid var(--gold);
 }
 
 a {
-	color: var(--text);
-/*	text-decoration: none;*/
+  color: var(--text);
+  /*	text-decoration: none;*/
 }
 
 #fullname {
-	line-height: 1.2;
-/*	font-family: Arvo; */
-	font-weight: 700;
-	font-size: 380%;
-	vertical-align: baseline;
-	margin: 5px 15px;
+  line-height: 1.2;
+  /*	font-family: Arvo; */
+  font-weight: 700;
+  font-size: 380%;
+  vertical-align: baseline;
+  margin: 5px 15px;
 }
 
 #fullname > #lastname {
-	color: var(--less);
+  color: var(--less);
 }
 
 #abstract {
-	font-weight: 400;
-	margin-bottom: 14px;
+  font-weight: 400;
+  margin-bottom: 14px;
 }
 
-#skills ul:not(#lectures) li, .skill {
-	line-height: 1;
-/*	font-family: arial, helvetica, sans-serif; */
-	letter-spacing: normal;
-	white-space: nowrap; /* do not break inside the li */
-	font-weight: 400;
-	border: 1px solid var(--less);
-	display: inline-block;
-	padding: 1pt 2pt;
-	margin: 2pt 1pt;
+#skills ul:not(#lectures) li,
+.skill {
+  line-height: 1;
+  /*	font-family: arial, helvetica, sans-serif; */
+  letter-spacing: normal;
+  white-space: nowrap; /* do not break inside the li */
+  font-weight: 400;
+  border: 1px solid var(--less);
+  display: inline-block;
+  padding: 1pt 2pt;
+  margin: 2pt 1pt;
 }
 
 #col-left p {
-	margin: 2px 0 0 0;
+  margin: 2px 0 0 0;
 }
 
 #col-left ul {
-	padding: 0;
-	margin-top: 3px;
-	margin-bottom: 1px;
+  padding: 0;
+  margin-top: 3px;
+  margin-bottom: 1px;
 }
 
 #main-content ul {
@@ -82,31 +83,31 @@ a {
 }
 
 #col-left ul {
-	list-style: none;
+  list-style: none;
 }
 
 ul#lectures li {
-	border-bottom: 1px solid var(--less);
-	padding: 3px 0px;
+  border-bottom: 1px solid var(--less);
+  padding: 3px 0px;
 }
 
 #col-left > div > div > h3 {
-/*	font-family: Anonymous Pro; */
-	font-weight: 700;
-	font-size: 13pt;
+  /*	font-family: Anonymous Pro; */
+  font-weight: 700;
+  font-size: 13pt;
   margin: 5px 0;
 }
 
 #col-left > div > h2 {
   display: flex;
   align-items: center;
-/*  font-family: Anonymous Pro; */
+  /*  font-family: Anonymous Pro; */
   font-weight: 700;
   font-style: normal;
 }
 
 #col-left > div > h2::after {
-  content: '';
+  content: "";
   flex: 1;
   margin-left: 5px;
   height: 1px;
@@ -114,109 +115,110 @@ ul#lectures li {
 }
 
 div.column {
-	padding: 12px;
+  padding: 12px;
 }
 
 div.column > div {
-	position: relative;
-	margin: 0px 6px;
+  position: relative;
+  margin: 0px 6px;
 }
 
 #img_profile {
-	max-width: 80%;
-	display: block;
-	margin: 15px auto 5px auto;
-	border-top-left-radius: 10%;
-	background-color: var(--less);
-	padding: 2px;
+  max-width: 80%;
+  display: block;
+  margin: 15px auto 5px auto;
+  border-top-left-radius: 10%;
+  background-color: var(--less);
+  padding: 2px;
 }
 
 #main-content h2 {
-	text-indent: 0px;
-	line-height: 1.5;
-	margin-bottom: 0px;
-	margin-left: -10px;
-	color: var(--text);
-	background-color: var(--pale);
-	padding-left: 10px;
-/*	font-family: arial, helvetica, sans-serif; */
-	letter-spacing: normal;
-	font-weight: 700;
-	font-size: 130%;
+  text-indent: 0px;
+  line-height: 1.5;
+  margin-bottom: 0px;
+  margin-left: -10px;
+  color: var(--text);
+  background-color: var(--pale);
+  padding-left: 10px;
+  /*	font-family: arial, helvetica, sans-serif; */
+  letter-spacing: normal;
+  font-weight: 700;
+  font-size: 130%;
 }
 
 section.main-content {
-	margin: 5px 0px 10px 10px;
+  margin: 5px 0px 10px 10px;
 }
 
 #academic-xp td {
-	margin: 0px 6px;
+  margin: 0px 6px;
 }
 
 #academic-xp > div ~ div {
-	border-top: 1px solid var(--accent);
+  border-top: 1px solid var(--accent);
 }
 
 #facts div {
-	margin: 6px 6px;
-	font-weight: 400;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
+  margin: 6px 6px;
+  font-weight: 400;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-i, .icon {
-	height: 14px;
+i,
+.icon {
+  height: 14px;
 }
 
 #facts div > span:not(.icon) {
-	margin-left: 4px;
+  margin-left: 4px;
 }
 
 section.main-content > div > h3 {
-/*	font-family: Anonymous Pro; */
-	font-weight: bold;
-/*	font-size: 120%; */
-	margin: 0pt;
-	display: inline;
+  /*	font-family: Anonymous Pro; */
+  font-weight: bold;
+  /*	font-size: 120%; */
+  margin: 0pt;
+  display: inline;
 }
 
 section.main-content > div {
-	padding: 3pt 0;
+  padding: 3pt 0;
 }
 
 section.main-content > div > ul {
-	padding-left: 15px;
+  padding-left: 15px;
 }
 
 section.main-content > div > h4 {
-/*	font-family: Anonymous Pro; */
+  /*	font-family: Anonymous Pro; */
   font-style: italic;
-	font-weight: 400;
-/*	font-size: 120%; */
-	margin: 0 0 0 0;
-	vertical-align: baseline;
-	display: inline;
+  font-weight: 400;
+  /*	font-size: 120%; */
+  margin: 0 0 0 0;
+  vertical-align: baseline;
+  display: inline;
 }
 
 section.main-content > div > h3 {
-	display: block;
-	clear: left;
+  display: block;
+  clear: left;
 }
 
 section.main-content > div > span.time {
-	margin: 0;
-	font-weight: normal;
-	color: var(--less);
-	font-size: 90%;
-	float: right;
+  margin: 0;
+  font-weight: normal;
+  color: var(--less);
+  font-size: 90%;
+  float: right;
 }
 
 section.main-content > div > p {
-	clear: left;
-	margin: 2pt 0 0 0;
-};
+  clear: left;
+  margin: 2pt 0 0 0;
+}
 
 p.time {
-	font-size: 90%;
+  font-size: 90%;
 }
