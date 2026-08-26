@@ -1,68 +1,75 @@
-h2, h3 {
-	break-after: avoid;
+h2,
+h3 {
+  break-after: avoid;
 }
 
 section > div {
-	break-inside: avoid-page;
+  break-inside: avoid-page;
 }
 
 #col-left section {
-	break-inside: avoid-page;
+  break-inside: avoid-page;
 }
 
 #col-left > section#skills {
-	break-inside: auto;
+  break-inside: auto;
 }
 
 body {
-	break-after: page;
+  break-after: page;
 }
 
 ul.skillList > li.deactivated {
-	text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 @media print {
-  .pagebreak { break-after: page; break-before: page; }
-  .floating-control, .control { display: none; }
+  .pagebreak {
+    break-after: page;
+    break-before: page;
+  }
+  .floating-control,
+  .control {
+    display: none;
+  }
 }
 
 @page {
-	size: A4;
-	margin: 0mm;
+  size: A4;
+  margin: 0mm;
 }
 
 #spoken-languages td:nth-child(2) {
-	text-align: right;
+  text-align: right;
 }
 
 #spoken-languages table {
-	width: 100%;
+  width: 100%;
 }
 
-#skills .expert::before   {
-/*	color: var(--most);  */
-	content: "\2605\2605"; 
+#skills .expert::before {
+  /*	color: var(--most);  */
+  content: "\2605\2605";
 }
 #skills .advanced::before {
-/*	color: var(--more); */
-	content: "\2605\2BE8"; 
+  /*	color: var(--more); */
+  content: "\2605\2BE8";
 }
 #skills .intermed::before {
-/*	color: var(--text);*/
-	content: "\2605"; 
+  /*	color: var(--text);*/
+  content: "\2605";
 }
 #skills .l2::before {
-/*	color: var(--less); */
-	content: "\2BE8"; 
+  /*	color: var(--less); */
+  content: "\2BE8";
 }
 
 span.grade::before {
-	content: " (";
+  content: " (";
 }
 
 span.grade::after {
-	content: ")";
+  content: ")";
 }
 
 form.chooseText > label {
