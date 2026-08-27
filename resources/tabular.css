@@ -31,7 +31,7 @@ section > h2::after {
   margin-bottom: 1.15em;
 }
 
-.date {
+.time {
   padding-top: 0.15em;
 
   color: #777;
@@ -40,7 +40,8 @@ section > h2::after {
   text-align: right;
 }
 
-.date-separator {
+.time > .start::after {
+  content: "\A \2014 \A";
   color: #aaa;
 }
 

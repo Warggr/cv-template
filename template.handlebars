@@ -1,14 +1,19 @@
 <html>
   <head>
-    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta charset="utf-8" />
+
     {{css "fonts.css"}}
     {{css "semantics.css"}}
     {{css "tabular.css"}}
+
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
     />
   </head>
+
   <body onload="javascript:main()">
+
     <main class="page">
 
       <!-- ============================================================
@@ -53,6 +58,7 @@
 
           </div>
         {{/with}}
+
         {{#if resume.basics.summary}}
           <p id="summary">
             {{resume.basics.summary}}
@@ -77,11 +83,10 @@
             {{#each resume.education}}
               <div class="entry">
 
-                <div class="date">
-                  {{startDate}}<br />
-                  <span class="date-separator">–</span><br />
-                  {{endDate}}
-                </div>
+                <span class="time">
+                  <span class="start">{{startDate}}</span>
+                  <span class="end">{{endDate}}</span>
+                </span>
 
                 <div class="entry-content">
 
@@ -97,8 +102,26 @@
                   {{#if special_courses}}
                     <ul>
                       {{#each special_courses}}
-                        <li />{{this}}
+                        <li>{{this}}</li>
                       {{/each}}
+                      {{#if courses}}
+                        <li class="subheading">Relevant coursework
+
+                          <ul>
+                            {{#each courses}}
+                              <li>{{this}}</li>
+                            {{/each}}
+
+                            {{#if score}}
+                              <li>
+                                {{score}}
+                                average grade
+                                {{#if ranking}}({{ranking}}){{/if}}
+                              </li>
+                            {{/if}}
+                          </ul>
+                        </li>
+                      {{/if}}
 
                       {{#if score}}
                         <li>
@@ -108,24 +131,23 @@
                         </li>
                       {{/if}}
                     </ul>
-                  {{/if}}
+                  {{else}}
 
-                  {{#if courses}}
-                    <p class="subheading">Relevant coursework</p>
+                    {{#if courses}}
+                      <ul>
+                        {{#each courses}}
+                          <li>{{this}}</li>
+                        {{/each}}
 
-                    <ul>
-                      {{#each this.highlights}}
-                        <li />{{this}}
-                      {{/each}}
-
-                      {{#if score}}
-                        <li>
-                          {{score}}
-                          average grade
-                          {{#if ranking}}({{ranking}}){{/if}}
-                        </li>
-                      {{/if}}
-                    </ul>
+                        {{#if score}}
+                          <li>
+                            {{score}}
+                            average grade
+                            {{#if ranking}}({{ranking}}){{/if}}
+                          </li>
+                        {{/if}}
+                      </ul>
+                    {{/if}}
                   {{/if}}
 
                   {{#if score}}
@@ -158,11 +180,10 @@
             {{#each resume.work}}
               <div class="entry">
 
-                <div class="date">
-                  {{startDate}}<br />
-                  <span class="date-separator">–</span><br />
-                  {{endDate}}
-                </div>
+                <span class="time">
+                  <span class="start">{{startDate}}</span>
+                  <span class="end">{{endDate}}</span>
+                </span>
 
                 <div class="entry-content">
 
@@ -212,25 +233,24 @@
             {{#each resume.projects}}
               <div class="entry">
 
-                <div class="date">
+                <span class="time">
                   {{#if date}}
                     {{date}}
                   {{else}}
-                    {{startDate}}
+                    <span class="start">{{startDate}}</span>
                     {{#if endDate}}
-                      <br />
-                      <span class="date-separator">–</span>
-                      <br />
-                      {{endDate}}
+                      <span class="end">{{endDate}}</span>
                     {{/if}}
                   {{/if}}
-                </div>
+                </span>
 
                 <div class="entry-content">
 
                   <h3>
-                    {{#if url}}<a href="{{url}}">{{this.name}}</a>
-                    {{else}}{{this.name}}
+                    {{#if url}}
+                      <a href="{{url}}">{{name}}</a>
+                    {{else}}
+                      {{name}}
                     {{/if}}
                   </h3>
 
@@ -280,9 +300,9 @@
             {{#each resume.awards}}
               <div class="entry">
 
-                <div class="date">
+                <span class="time">
                   {{date}}
-                </div>
+                </span>
 
                 <div class="entry-content">
 
@@ -354,6 +374,8 @@
         {{/if}}
 
       </div>
+
     </main>
+
   </body>
 </html>
