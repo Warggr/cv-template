@@ -56,7 +56,7 @@
                 {{ location.city }}
                 {{#if location.countryCode}}
                   ,
-                  {{ location.countryCode }}
+                  {{toCountryName location.countryCode}}
                 {{/if}}
               </span>
             {{/if}}
