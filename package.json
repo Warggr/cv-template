@@ -20,6 +20,7 @@
     "jsonresume-theme"
   ],
   "dependencies": {
+    "handlebars-async-helpers": "^1.0.6",
     "jsonresume-theme-warggr": "file:.",
     "resume-cli": "^3.0.8"
   },

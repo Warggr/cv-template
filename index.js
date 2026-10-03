@@ -1,26 +1,43 @@
 // index.js
 import Handlebars from "handlebars";
-import fs from "node:fs";
+import asyncHelpers from "handlebars-async-helpers";
 
-const template = fs.readFileSync("./template.handlebars", "utf8");
+const hb = asyncHelpers(Handlebars);
 
-Handlebars.registerHelper("css", function (sheetname) {
-  const contents = fs.readFileSync("resources/" + sheetname, "utf8");
+async function load(resourcePath) {
+  if (typeof process !== "undefined" && process.versions?.node) {
+    const { readFile } = await import("node:fs/promises");
+
+    return readFile(resourcePath, "utf8");
+  } else {
+    const response = await fetch(new URL(resourcePath, import.meta.url));
+    if (!response.ok) {
+      throw new Error(`failed to fetch resource ${url}: ${response.status}`);
+    }
+    return response.text();
+  }
+}
+
+hb.registerHelper("css", async function (sheetname) {
+  const contents = await load("resources/" + sheetname);
   return new Handlebars.SafeString("<style>" + contents + "</style>");
 });
 
-Handlebars.registerHelper("toLowerCase", function (str) {
+hb.registerHelper("toLowerCase", function (str) {
   return str.toLowerCase();
 });
 
-export function render(resume) {
-  const translations = JSON.parse(
-    fs.readFileSync(`./locales/${resume.meta.lang ?? "en"}.json`),
-  );
-  Handlebars.registerHelper("i18n", function (key) {
-    console.warn("Translating", key);
-    return translations[key];
-  });
+export async function render(resume) {
+  const template_promise = load("./template.handlebars");
+  const translations = load(`./locales/${resume.meta.lang ?? "en"}.json`)
+    .then(JSON.parse)
+    .then((translations) => {
+      hb.registerHelper("i18n", function (key) {
+        return translations[key];
+      });
+    });
 
-  return Handlebars.compile(template, { noEscape: true })({ resume });
+  const [template, _] = await Promise.all([template_promise, translations]);
+
+  return hb.compile(template, { noEscape: true })({ resume });
 }
