@@ -11,6 +11,7 @@
   },
   "scripts": {
     "build": "rollup -c",
+    "prepare": "npm run build",
     "resume": "resume",
     "make": "resume export --theme warggr --resume",
     "export-translations-draft": "cat template.handlebars| sed 's/}}/\\n}}/g;s/{{/{{\\n/g' | grep i18n | awk '{ $1=\"\"; print \"  \"$0\": \"$0\",\" }; BEGIN { print \"{\" } END { print \"}\" }'",
