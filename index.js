@@ -5,11 +5,14 @@ import asyncHelpers from "handlebars-async-helpers";
 const hb = asyncHelpers(Handlebars);
 
 async function load(resourcePath) {
-  if (typeof process !== "undefined" && process.versions?.node) {
+  if (typeof window === "undefined") {
+    // Node.js.
+    // Checking for e.g. `process.versions?.node` does not work on esm.sh, for some reason
     const { readFile } = await import("node:fs/promises");
 
     return readFile(resourcePath, "utf8");
   } else {
+    // Browser
     const response = await fetch(new URL(resourcePath, import.meta.url));
     if (!response.ok) {
       throw new Error(`failed to fetch resource ${url}: ${response.status}`);
