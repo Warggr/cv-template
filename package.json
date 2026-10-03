@@ -25,6 +25,12 @@
     "resume-cli": "^3.0.8"
   },
   "devDependencies": {
-    "prettier": "^3.9.6"
+    "@poliklot/prettier-plugin-handlebars": "^0.4.1",
+    "prettier": "^3.9.9"
+  },
+  "prettier": {
+    "plugins": [
+      "@poliklot/prettier-plugin-handlebars"
+    ]
   }
 }
