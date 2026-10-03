@@ -36,6 +36,10 @@ export async function render(resume) {
         return translations[key];
       });
     });
+  const regionNames = new Intl.DisplayNames([resume.meta.lang ?? "en"], {
+    type: "region",
+  });
+  hb.registerHelper("toCountryName", (code) => regionNames.of(code));
 
   const [template, _] = await Promise.all([template_promise, translations]);
 
