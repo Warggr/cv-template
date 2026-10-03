@@ -22,37 +22,42 @@
 
       <header id="header">
 
-        <h1 id="fullname">{{resume.basics.name}}</h1>
+        <h1 id="fullname">{{ resume.basics.name }}</h1>
 
         {{#with resume.basics}}
           <div id="contact">
 
             {{#if email}}
-              <a href="mailto:{{email}}">
+              <a href="mailto:{{ email }}">
                 <i class="fa fa-at"></i>
-                {{email}}
+                {{ email }}
               </a>
             {{/if}}
 
             {{#if phone}}
-              <a href="tel:{{phone}}">
+              <a href="tel:{{ phone }}">
                 <i class="fa fa-phone"></i>
-                {{phone}}
+                {{ phone }}
               </a>
             {{/if}}
 
             {{#each profiles}}
-              <a href="{{url}}">
+              <a href="{{ url }}">
                 <i class="fa fa-{{toLowerCase this.network}}"></i>
-                {{network}}/{{username}}
+                {{ network }}
+                /
+                {{ username }}
               </a>
             {{/each}}
 
             {{#if location}}
               <span>
                 <i class="fa fa-map-marker"></i>
-                {{location.city}}{{#if location.countryCode}},
-                  {{location.countryCode}}{{/if}}
+                {{ location.city }}
+                {{#if location.countryCode}}
+                  ,
+                  {{ location.countryCode }}
+                {{/if}}
               </span>
             {{/if}}
 
@@ -61,7 +66,7 @@
 
         {{#if resume.basics.summary}}
           <p id="summary">
-            {{resume.basics.summary}}
+            {{ resume.basics.summary }}
           </p>
         {{/if}}
 
@@ -84,39 +89,42 @@
               <div class="entry">
 
                 <span class="time">
-                  <span class="start">{{startDate}}</span>
-                  <span class="end">{{endDate}}</span>
+                  <span class="start">{{ startDate }}</span>
+                  <span class="end">{{ endDate }}</span>
                 </span>
 
                 <div class="entry-content">
 
                   <div class="entry-header">
-                    <h3>{{institution}}</h3>
+                    <h3>{{ institution }}</h3>
                   </div>
 
-                  <p class="entry-title">
-                    {{studyType}}
-                    {{area}}
-                  </p>
+                  <p class="entry-title">{{ studyType }} {{ area }}</p>
 
                   {{#if special_courses}}
                     <ul>
                       {{#each special_courses}}
-                        <li>{{this}}</li>
+                        <li>
+                          {{ this }}
+                        </li>
                       {{/each}}
                       {{#if courses}}
-                        <li class="subheading">Relevant coursework:
-
+                        <li class="subheading">
+                          Relevant coursework:
                           <ul>
                             {{#each courses}}
-                              <li>{{this}}</li>
+                              <li>
+                                {{ this }}
+                              </li>
                             {{/each}}
 
                             {{#if score}}
                               <li>
-                                {{score}}
+                                {{ score }}
                                 average grade
-                                {{#if ranking}}({{ranking}}){{/if}}
+                                {{#if ranking}}
+                                  ({{ ranking }})
+                                {{/if}}
                               </li>
                             {{/if}}
                           </ul>
@@ -125,25 +133,30 @@
 
                       {{#if score}}
                         <li>
-                          {{score}}
+                          {{ score }}
                           average grade
-                          {{#if ranking}}({{ranking}}){{/if}}
+                          {{#if ranking}}
+                            ({{ ranking }})
+                          {{/if}}
                         </li>
                       {{/if}}
                     </ul>
                   {{else}}
-
                     {{#if courses}}
                       <ul>
                         {{#each courses}}
-                          <li>{{this}}</li>
+                          <li>
+                            {{ this }}
+                          </li>
                         {{/each}}
 
                         {{#if score}}
                           <li>
-                            {{score}}
+                            {{ score }}
                             average grade
-                            {{#if ranking}}({{ranking}}){{/if}}
+                            {{#if ranking}}
+                              ({{ ranking }})
+                            {{/if}}
                           </li>
                         {{/if}}
                       </ul>
@@ -154,9 +167,11 @@
                     {{#unless special_courses}}
                       {{#unless courses}}
                         <p class="entry-detail">
-                          {{score}}
+                          {{ score }}
                           average grade
-                          {{#if ranking}}({{ranking}}){{/if}}
+                          {{#if ranking}}
+                            ({{ ranking }})
+                          {{/if}}
                         </p>
                       {{/unless}}
                     {{/unless}}
@@ -181,28 +196,28 @@
               <div class="entry">
 
                 <span class="time">
-                  <span class="start">{{startDate}}</span>
-                  <span class="end">{{endDate}}</span>
+                  <span class="start">{{ startDate }}</span>
+                  <span class="end">{{ endDate }}</span>
                 </span>
 
                 <div class="entry-content">
 
-                  <h3>{{name}}</h3>
+                  <h3>{{ name }}</h3>
 
-                  <p class="entry-title">
-                    {{position}}
-                  </p>
+                  <p class="entry-title">{{ position }}</p>
 
                   {{#if summary}}
                     <p class="summary">
-                      {{summary}}
+                      {{ summary }}
                     </p>
                   {{/if}}
 
                   {{#if highlights}}
                     <ul>
                       {{#each highlights}}
-                        <li>{{this}}</li>
+                        <li>
+                          {{ this }}
+                        </li>
                       {{/each}}
                     </ul>
                   {{/if}}
@@ -210,7 +225,9 @@
                   {{#if technologies}}
                     <div class="tags">
                       {{#each technologies}}
-                        <span class="tag">{{this}}</span>
+                        <span class="tag">
+                          {{ this }}
+                        </span>
                       {{/each}}
                     </div>
                   {{/if}}
@@ -235,11 +252,15 @@
 
                 <span class="time">
                   {{#if date}}
-                    {{date}}
+                    {{ date }}
                   {{else}}
-                    <span class="start">{{startDate}}</span>
+                    <span class="start">
+                      {{ startDate }}
+                    </span>
                     {{#if endDate}}
-                      <span class="end">{{endDate}}</span>
+                      <span class="end">
+                        {{ endDate }}
+                      </span>
                     {{/if}}
                   {{/if}}
                 </span>
@@ -248,28 +269,32 @@
 
                   <h3>
                     {{#if url}}
-                      <a href="{{url}}">{{name}}</a>
+                      <a href="{{ url }}">
+                        {{ name }}
+                      </a>
                     {{else}}
-                      {{name}}
+                      {{ name }}
                     {{/if}}
                   </h3>
 
                   {{#if generic}}
                     <p class="entry-title">
-                      {{generic}}
+                      {{ generic }}
                     </p>
                   {{/if}}
 
                   {{#if summary}}
                     <p class="summary">
-                      {{summary}}
+                      {{ summary }}
                     </p>
                   {{/if}}
 
                   {{#if highlights}}
                     <ul>
                       {{#each highlights}}
-                        <li>{{this}}</li>
+                        <li>
+                          {{ this }}
+                        </li>
                       {{/each}}
                     </ul>
                   {{/if}}
@@ -277,7 +302,9 @@
                   {{#if keywords}}
                     <div class="tags">
                       {{#each keywords}}
-                        <span class="tag">{{this}}</span>
+                        <span class="tag">
+                          {{ this }}
+                        </span>
                       {{/each}}
                     </div>
                   {{/if}}
@@ -300,21 +327,17 @@
             {{#each resume.awards}}
               <div class="entry">
 
-                <span class="time">
-                  {{date}}
-                </span>
+                <span class="time">{{ date }}</span>
 
                 <div class="entry-content">
 
-                  <h3>{{title}}</h3>
+                  <h3>{{ title }}</h3>
 
-                  <p class="entry-title">
-                    {{awarder}}
-                  </p>
+                  <p class="entry-title">{{ awarder }}</p>
 
                   {{#if summary}}
                     <p class="summary">
-                      {{summary}}
+                      {{ summary }}
                     </p>
                   {{/if}}
 
@@ -338,12 +361,14 @@
               {{#each resume.skills}}
                 <div class="skill-group">
 
-                  <h3>{{name}}</h3>
+                  <h3>{{ name }}</h3>
 
                   {{#if keywords}}
                     <ul>
                       {{#each keywords}}
-                        <li>{{this}}</li>
+                        <li>
+                          {{ this }}
+                        </li>
                       {{/each}}
                     </ul>
                   {{/if}}
@@ -352,15 +377,15 @@
               {{/each}}
 
               {{#if resume.languages}}
-                <div class="skill-group" id="spoken-languages">
+                <div id="spoken-languages" class="skill-group">
 
                   <h3>Spoken Languages</h3>
 
                   <ul>
                     {{#each resume.languages}}
                       <li>
-                        <span>{{language}}</span>
-                        <span class="fluency">{{fluency}}</span>
+                        <span>{{ language }}</span>
+                        <span class="fluency">{{ fluency }}</span>
                       </li>
                     {{/each}}
                   </ul>
