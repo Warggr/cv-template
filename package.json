@@ -5,11 +5,12 @@
   "license": "MIT",
   "author": "Pierre Ballif <pierre@ballif.eu>",
   "type": "module",
-  "main": "index.js",
+  "main": "dist/index.js",
   "exports": {
-    ".": "./index.js"
+    ".": "./dist/index.js"
   },
   "scripts": {
+    "build": "rollup -c",
     "resume": "resume",
     "make": "resume export --theme warggr --resume",
     "export-translations-draft": "cat template.handlebars| sed 's/}}/\\n}}/g;s/{{/{{\\n/g' | grep i18n | awk '{ $1=\"\"; print \"  \"$0\": \"$0\",\" }; BEGIN { print \"{\" } END { print \"}\" }'",
@@ -20,13 +21,18 @@
     "jsonresume-theme"
   ],
   "dependencies": {
-    "handlebars-async-helpers": "^1.0.6",
     "jsonresume-theme-warggr": "file:.",
     "resume-cli": "^3.0.8"
   },
   "devDependencies": {
     "@poliklot/prettier-plugin-handlebars": "^0.4.1",
-    "prettier": "^3.9.9"
+    "@rollup/plugin-commonjs": "^29.0.3",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "prettier": "^3.9.9",
+    "rollup": "^4.64.0",
+    "rollup-plugin-import-css": "^4.2.1",
+    "rollup-plugin-string": "^3.0.0"
   },
   "prettier": {
     "plugins": [
