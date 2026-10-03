@@ -12,8 +12,6 @@
   "scripts": {
     "build": "rollup -c",
     "prepare": "npm run build",
-    "resume": "resume",
-    "make": "resume export --theme warggr --resume",
     "export-translations-draft": "cat template.handlebars| sed 's/}}/\\n}}/g;s/{{/{{\\n/g' | grep i18n | awk '{ $1=\"\"; print \"  \"$0\": \"$0\",\" }; BEGIN { print \"{\" } END { print \"}\" }'",
     "format": "prettier . --write"
   },
@@ -21,10 +19,6 @@
     "jsonresume",
     "jsonresume-theme"
   ],
-  "dependencies": {
-    "jsonresume-theme-warggr": "file:.",
-    "resume-cli": "^3.0.8"
-  },
   "devDependencies": {
     "@poliklot/prettier-plugin-handlebars": "^0.4.1",
     "@rollup/plugin-commonjs": "^29.0.3",
