@@ -15,7 +15,9 @@ async function load(resourcePath) {
     // Browser
     const response = await fetch(new URL(resourcePath, import.meta.url));
     if (!response.ok) {
-      throw new Error(`failed to fetch resource ${url}: ${response.status}`);
+      throw new Error(
+        `failed to fetch resource ${resourcePath}: ${response.status}`,
+      );
     }
     return response.text();
   }
