@@ -7,6 +7,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # allow creating releases
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -14,8 +16,7 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
-      - name: Upload bundle
-        uses: actions/upload-artifact@v7
+      - name: Create release
+        uses: ncipollo/release-action@v1
         with:
-          name: bundle
-          path: dist/
+          artifacts: "dist/*"
